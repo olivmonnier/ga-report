@@ -1,0 +1,16 @@
+{
+  "name": "ga-report",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "bower": "^1.7.9",
+    "browser-sync": "^2.12.10"
+  }
+}

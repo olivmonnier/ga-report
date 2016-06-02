@@ -1,0 +1,22 @@
+{
+  "name": "ga-report",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Olivier Monnier <monnier@indigo-net.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "lodash": "^4.13.1"
+  }
+}
