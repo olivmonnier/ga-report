@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>GA Report</title>
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
   </head>
   <body>
     <script>
@@ -21,64 +22,73 @@
         </div>
       </div>
 
-      <form class="well">
-        <div class="row form-group">
-          <div class="col-md-2">
-            <label for="type">type</label>
-            <select id="type" class="form-control">
-              <option value="LINE">Line</option>
-              <option value="COLUMN">Column</option>
-              <option value="PIE">Pie</option>
-              <option value="BAR">Bar</option>
-              <option value="TABLE">Table</option>
-              <option value="GEO">Geo</option>
-            </select>
+      <div class="view-logged">
+        <form class="well">
+          <div class="row form-group">
+            <div class="col-md-2">
+              <label for="type">type</label>
+              <select id="type" class="form-control">
+                <option value="LINE">Line</option>
+                <option value="COLUMN">Column</option>
+                <option value="PIE">Pie</option>
+                <option value="BAR">Bar</option>
+                <option value="TABLE">Table</option>
+                <option value="GEO">Geo</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="size">size</label>
+              <select id="size" class="form-control">
+                <option value="6">1/2 bloc</option>
+                <option value="12">1 bloc</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-md-6">
-            <label for="metrics">metrics</label>
-            <input id="metrics" type="text" class="form-control" value="ga:sessions"/>
+          <div class="row form-group">
+            <div class="col-md-6">
+              <label for="metrics">metrics</label>
+              <input id="metrics" type="text" class="form-control" value="ga:sessions"/>
+            </div>
+            <div class="col-md-6">
+              <label for="dimensions">dimensions</label>
+              <input id="dimensions" type="text" class="form-control" value="ga:country"/>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="dimensions">dimensions</label>
-            <input id="dimensions" type="text" class="form-control" value="ga:country"/>
+          <div class="row form-group">
+            <div class="col-md-6">
+              <label for="startDate">start-date</label>
+              <input id="startDate" type="text" class="form-control" value="30daysAgo"/>
+            </div>
+            <div class="col-md-6">
+              <label for="endDate">end-date</label>
+              <input id="endDate" type="text" class="form-control" value="yesterday"/>
+            </div>
           </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-md-6">
-            <label for="startDate">start-date</label>
-            <input id="startDate" type="text" class="form-control" value="30daysAgo"/>
+          <div class="row form-group">
+            <div class="col-md-6">
+              <label for="maxResults">max-results</label>
+              <input id="maxResults" type="text" class="form-control" value="6"/>
+            </div>
+            <div class="col-md-6">
+              <label for="sort">sort</label>
+              <input id="sort" type="text" class="form-control" value="-ga:sessions"/>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="endDate">end-date</label>
-            <input id="endDate" type="text" class="form-control" value="yesterday"/>
+          <div class="row form-group">
+            <div class="col-md-6">
+              <label for="filters">filters</label>
+              <input id="filters" type="text" class="form-control" value=""/>
+            </div>
+            <div class="col-md-6">
+              <label for="segment">segment</label>
+              <input id="segment" type="text" class="form-control" value=""/>
+            </div>
           </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-md-6">
-            <label for="maxResults">max-results</label>
-            <input id="maxResults" type="text" class="form-control" value="6"/>
-          </div>
-          <div class="col-md-6">
-            <label for="sort">sort</label>
-            <input id="sort" type="text" class="form-control" value="-ga:sessions"/>
-          </div>
-        </div>
-        <div class="row form-group">
-          <div class="col-md-6">
-            <label for="filters">filters</label>
-            <input id="filters" type="text" class="form-control" value=""/>
-          </div>
-          <div class="col-md-6">
-            <label for="segment">segment</label>
-            <input id="segment" type="text" class="form-control" value=""/>
-          </div>
-        </div>
-        <button id="formSubmit" type="button" class="btn btn-primary">Submit</button>
-      </form>
+          <button id="formSubmit" type="button" class="btn btn-primary">Submit</button>
+        </form>
 
-      <div id="graph" class="row"></div>
+        <div id="graph" class="row"></div>
+      </div>
     </div>
 
     <script src="vendor/lodash/dist/lodash.min.js" charset="utf-8"></script>

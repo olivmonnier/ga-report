@@ -4,22 +4,29 @@ var chartOptions = {
     pieHole: 4/9
   },
   LINE: {
+    width: '100%',
     curveType: 'function',
     legend: { position: 'bottom' }
   },
   COLUMN: {
+    width: '100%',
     legend: { position: 'top', maxLines: 3 }
   },
   BAR: {
+    width: '100%',
     legend: { position: 'top', maxLines: 3 }
   },
-  TABLE: {},
-  GEO: {}
+  TABLE: {
+    width: '100%'
+  },
+  GEO: {
+    width: '100%'
+  }
 }
 
 function viewChartContainer($parent, index, data) {
   var template = _.template(
-    '<div id="view-' + index + '" class="col-md-6">' +
+    '<div id="view-' + index + '" class="col-md-' + data.size + '">' +
       '<div class="text-right" style="height: 20px;"><button type="button" class="btn-close close" data-view="' + index + '">×</button></div>' +
       '<div id="chart-' + index + '-container" style="margin-bottom: 10px;"></div>' +
       '<div id="view-selector-' + index + '-container"></div>' +

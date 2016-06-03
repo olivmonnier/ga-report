@@ -10,13 +10,23 @@ gapi.analytics.ready(function() {
     clientid: '78021961985-rtqapis46k3ds07o8c1uv2l29pauk66j.apps.googleusercontent.com'
   });
 
+  gapi.analytics.auth.on('success', function() {
+    $('.view-logged').show();
+  });
+
   var DATA = [];
 
   function renderCharts() {
+    var i = 0
+    $('#graph').empty();
     DATA.forEach(function(stat, index) {
-      viewChartContainer($('#graph'), index, stat);
+      i = i + +stat.size;
 
-      if ((index+1) % 2 === 0) $('#graph').append('<div class="clearfix"></div>');
+      if (i > 12) {
+        i = 0;
+        $('#graph').append('<div class="clearfix"></div>');
+      }
+      viewChartContainer($('#graph'), index, stat);
     });
   }
 
@@ -33,10 +43,10 @@ gapi.analytics.ready(function() {
         maxResults: $('#maxResults').val(),
         sort: $('#sort').val(),
         filters: $('#filters').val(),
-        segment: $('#segment').val()
+        segment: $('#segment').val(),
+        size: $('#size').val()
       });
 
-      $('#graph').empty();
       renderCharts()
     });
 
@@ -47,7 +57,6 @@ gapi.analytics.ready(function() {
 
       DATA.splice(i, 1);
 
-      $('#graph').empty();
       renderCharts();
     });
   });
