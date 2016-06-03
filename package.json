@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install",
-    "start": "node server"
+    "start": "node server",
+    "dev": "NODE_ENV=development && node server",
+    "devWin": "set NODE_ENV=development && node server"
   },
   "author": "",
   "license": "ISC",

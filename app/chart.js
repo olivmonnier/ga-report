@@ -25,9 +25,14 @@ var chartOptions = {
 }
 
 function viewChartContainer($parent, index, data) {
+  var icon = data.saved ? 'glyphicon-floppy-saved' : 'glyphicon-floppy-disk';
+  var savedClass = data.saved ? 'saved' : '';
   var template = _.template(
     '<div id="view-' + index + '" class="col-md-' + data.size + '">' +
-      '<div class="text-right" style="height: 20px;"><button type="button" class="btn-close close" data-view="' + index + '">×</button></div>' +
+      '<div class="text-right" style="height: 20px;" data-view="' + data.uid + '">' +
+        '<button type="button" class="btn-save btn btn-xs ' + savedClass + '"><i class="glyphicon ' + icon + '"></i></button>' +
+        '&nbsp;' +
+        '<button type="button" class="btn-close close">×</button></div>' +
       '<div id="chart-' + index + '-container" style="margin-bottom: 10px;"></div>' +
       '<div id="view-selector-' + index + '-container"></div>' +
     '</div>'

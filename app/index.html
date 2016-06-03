@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>GA Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
     <script src="vendor/oauth-js/dist/oauth.min.js" charset="utf-8"></script>
@@ -17,6 +18,12 @@
       }(window,document,'script'));
     </script>
     <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div id="embed-api-auth-container">Authentificating...</div>
+        </div>
+      </div>
+
       <div class="view-logged">
         <form class="well">
           <div class="row form-group">
@@ -41,11 +48,11 @@
           </div>
           <div class="row form-group">
             <div class="col-md-6">
-              <label for="metrics">metrics</label>
+              <label for="metrics">*metrics</label>
               <input id="metrics" type="text" class="form-control" value="ga:sessions"/>
             </div>
             <div class="col-md-6">
-              <label for="dimensions">dimensions</label>
+              <label for="dimensions">*dimensions</label>
               <input id="dimensions" type="text" class="form-control" value="ga:country"/>
             </div>
           </div>
@@ -80,6 +87,7 @@
             </div>
           </div>
           <button id="formSubmit" type="button" class="btn btn-primary">Submit</button>
+          <a class="btn btn-link" href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets" target="_blank">* Dimensions & Metrics Explorer</a>
         </form>
 
         <div id="graph" class="row"></div>
