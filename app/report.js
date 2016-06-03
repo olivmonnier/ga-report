@@ -59,7 +59,7 @@ function startApp() {
 
   $(document).ready(function() {
     DATA = JSON.parse(localStorage.getItem('ga-report'));
-    renderCharts();
+    if (DATA) renderCharts();
 
     $(document).on('click', '#formSubmit', function(e) {
       e.preventDefault();
