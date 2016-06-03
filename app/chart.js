@@ -30,6 +30,8 @@ function viewChartContainer($parent, index, data) {
   var template = _.template(
     '<div id="view-' + index + '" class="col-md-' + data.size + '">' +
       '<div class="text-right" style="height: 20px;" data-view="' + data.uid + '">' +
+        '<button type="button" class="btn-edit btn btn-xs"><i class="glyphicon glyphicon-pencil"></i></button>' +
+        '&nbsp;' +
         '<button type="button" class="btn-save btn btn-xs ' + savedClass + '"><i class="glyphicon ' + icon + '"></i></button>' +
         '&nbsp;' +
         '<button type="button" class="btn-close close">×</button></div>' +

@@ -62,21 +62,51 @@ function startApp() {
 
     $(document).on('click', '#formSubmit', function(e) {
       e.preventDefault();
+      var isModal = $(this).closest('.modal-edit').length > 0;
 
-      DATA.push({
-        uid: generateUUID(),
-        type: $('#type').val(),
-        metrics: $('#metrics').val(),
-        dimensions: $('#dimensions').val(),
-        startDate: $('#startDate').val(),
-        endDate: $('#endDate').val(),
-        maxResults: $('#maxResults').val(),
-        sort: $('#sort').val(),
-        filters: $('#filters').val(),
-        segment: $('#segment').val(),
-        size: $('#size').val(),
-        saved: false
-      });
+      if (!isModal) {
+        DATA.push({
+          uid: generateUUID(),
+          type: $('#type').val(),
+          metrics: $('#metrics').val(),
+          dimensions: $('#dimensions').val(),
+          startDate: $('#startDate').val(),
+          endDate: $('#endDate').val(),
+          maxResults: $('#maxResults').val(),
+          sort: $('#sort').val(),
+          filters: $('#filters').val(),
+          segment: $('#segment').val(),
+          size: $('#size').val(),
+          saved: false
+        });
+      } else {
+        var id = $('.modal-body').data('view');
+        var index = _.findIndex(DATA, function(d) { return d.uid == id });
+        var dataLocal = JSON.parse(localStorage.getItem('ga-report'));
+        var isSaved = _.findIndex(dataLocal, function(d) { return d.uid == id }) >= 0;
+        var newData = {
+          uid: id,
+          type: $('.modal').find('#type').val(),
+          metrics: $('.modal').find('#metrics').val(),
+          dimensions: $('.modal').find('#dimensions').val(),
+          startDate: $('.modal').find('#startDate').val(),
+          endDate: $('.modal').find('#endDate').val(),
+          maxResults: $('.modal').find('#maxResults').val(),
+          sort: $('.modal').find('#sort').val(),
+          filters: $('.modal').find('#filters').val(),
+          segment: $('.modal').find('#segment').val(),
+          size: $('.modal').find('#size').val(),
+          saved: isSaved
+        }
+        DATA[index] = newData;
+
+        if (isSaved) {
+          dataLocal[index] = newData;
+          localStorage.setItem('ga-report', JSON.stringify(dataLocal));
+        }
+
+        $('.modal-edit').modal('hide');
+      }
 
       renderCharts()
     });
@@ -114,6 +144,25 @@ function startApp() {
       $this.find('i')
         .removeClass($this.hasClass('saved') ? 'glyphicon-floppy-disk' : 'glyphicon-floppy-saved')
         .addClass($this.hasClass('saved') ? 'glyphicon-floppy-saved' : 'glyphicon-floppy-disk');
+    });
+
+    $(document).on('click', '.btn-edit', function(e) {
+      e.preventDefault();
+      var $this = $(this);
+      var id = $(this).parent().data('view');
+      var index = _.findIndex(DATA, function(d) { return d.uid == id });
+      var stats = DATA[index];
+      var formHtml = $('form').html();
+      var $modal = $('.modal-edit');
+
+      $modal.find('.modal-body').html(formHtml);
+      $('.modal-body').attr('data-view', id);
+
+      for (var i in stats) {
+        $modal.find('#' + i).val(stats[i]);
+      }
+
+      $modal.modal('show');
     });
   });
 }

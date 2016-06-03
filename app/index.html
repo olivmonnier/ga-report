@@ -27,7 +27,7 @@
       <div class="view-logged">
         <form class="well">
           <div class="row form-group">
-            <div class="col-md-2">
+            <div class="col-md-4">
               <label for="type">type</label>
               <select id="type" class="form-control">
                 <option value="LINE">Line</option>
@@ -38,7 +38,7 @@
                 <option value="GEO">Geo</option>
               </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
               <label for="size">size</label>
               <select id="size" class="form-control">
                 <option value="6">1/2 bloc</option>
@@ -89,6 +89,18 @@
           <button id="formSubmit" type="button" class="btn btn-primary">Submit</button>
           <a class="btn btn-link" href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets" target="_blank">* Dimensions & Metrics Explorer</a>
         </form>
+
+        <div class="modal-edit modal fade" tabindex="-1" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Edit</h4>
+              </div>
+              <div class="modal-body"></div>
+            </div>
+          </div>
+        </div>
 
         <div id="graph" class="row"></div>
       </div>
