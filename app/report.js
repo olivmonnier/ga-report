@@ -26,7 +26,7 @@ if (window.location.hostname == 'localhost') {
   });
 }
 
-var DATA = [];
+DATA = [];
 
 function generateUUID() {
   var d = new Date().getTime();
@@ -54,12 +54,11 @@ function renderCharts() {
 }
 
 function startApp() {
-
   $('.view-logged').show();
 
   $(document).ready(function() {
     DATA = JSON.parse(localStorage.getItem('ga-report'));
-    if (DATA) renderCharts();
+    DATA ? renderCharts() : DATA = [];
 
     $(document).on('click', '#formSubmit', function(e) {
       e.preventDefault();
