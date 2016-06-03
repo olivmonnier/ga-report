@@ -16,7 +16,7 @@ if (window.location.hostname == 'localhost') {
 } else {
   OAuth.initialize('mr4LvKW1k0jEkIcgDmyQlspDni0');
   OAuth.popup('google_analytics').done(function(result) {
-    $('#embed-api-auth-container').html('Authentificate');
+    $('#embed-api-auth-container').html('Connected');
     // do some stuff with result
     gapi.analytics.ready(function() {
       gapi.analytics.auth.authorize({serverAuth: result});
