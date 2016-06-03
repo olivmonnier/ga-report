@@ -1,7 +1,7 @@
-var browserSync = require('browser-sync');
+var connect = require('connect'),
+    serveStatic = require('serve-static');
 
-browserSync({
-  port: process.env.PORT || 3000,
-  server: "app",
-  files: ["app/*.html", "app/*.js", "node_modules/**/*"]
-});
+var app = connect();
+
+app.use(serveStatic("./app"));
+app.listen(process.env.PORT || 3000);
