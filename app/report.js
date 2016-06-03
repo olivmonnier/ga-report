@@ -60,6 +60,16 @@ function startApp() {
     DATA = JSON.parse(localStorage.getItem('ga-report'));
     DATA ? renderCharts() : DATA = [];
 
+    $(document).on('click', '.btn-form-toggle', function(e) {
+      var $this = $(this);
+      $('form').slideToggle('normal', function() {
+        var isVisible = $this.find('i').hasClass('glyphicon-chevron-down');
+        $this.find('i')
+        .removeClass(isVisible ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up')
+        .addClass(isVisible ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down');
+      });
+    });
+
     $(document).on('click', '#formSubmit', function(e) {
       e.preventDefault();
       var isModal = $(this).closest('.modal-edit').length > 0;

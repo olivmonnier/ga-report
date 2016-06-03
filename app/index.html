@@ -25,70 +25,75 @@
       </div>
 
       <div class="view-logged">
-        <form class="well">
-          <div class="row form-group">
-            <div class="col-md-4">
-              <label for="type">type</label>
-              <select id="type" class="form-control">
-                <option value="LINE">Line</option>
-                <option value="COLUMN">Column</option>
-                <option value="PIE">Pie</option>
-                <option value="BAR">Bar</option>
-                <option value="TABLE">Table</option>
-                <option value="GEO">Geo</option>
-              </select>
+        <div class="pull-right" style="margin-top: 4px;">
+          <button class="btn-form-toggle btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></button>
+        </div>
+        <div class="well">
+          <form>
+            <div class="row form-group">
+              <div class="col-md-4">
+                <label for="type">type</label>
+                <select id="type" class="form-control">
+                  <option value="LINE">Line</option>
+                  <option value="COLUMN">Column</option>
+                  <option value="PIE">Pie</option>
+                  <option value="BAR">Bar</option>
+                  <option value="TABLE">Table</option>
+                  <option value="GEO">Geo</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="size">size</label>
+                <select id="size" class="form-control">
+                  <option value="6">1/2 bloc</option>
+                  <option value="12">1 bloc</option>
+                </select>
+              </div>
             </div>
-            <div class="col-md-4">
-              <label for="size">size</label>
-              <select id="size" class="form-control">
-                <option value="6">1/2 bloc</option>
-                <option value="12">1 bloc</option>
-              </select>
+            <div class="row form-group">
+              <div class="col-md-6">
+                <label for="metrics">*metrics</label>
+                <input id="metrics" type="text" class="form-control" value="ga:sessions"/>
+              </div>
+              <div class="col-md-6">
+                <label for="dimensions">*dimensions</label>
+                <input id="dimensions" type="text" class="form-control" value="ga:country"/>
+              </div>
             </div>
-          </div>
-          <div class="row form-group">
-            <div class="col-md-6">
-              <label for="metrics">*metrics</label>
-              <input id="metrics" type="text" class="form-control" value="ga:sessions"/>
+            <div class="row form-group">
+              <div class="col-md-6">
+                <label for="startDate">start-date</label>
+                <input id="startDate" type="text" class="form-control" value="30daysAgo"/>
+              </div>
+              <div class="col-md-6">
+                <label for="endDate">end-date</label>
+                <input id="endDate" type="text" class="form-control" value="yesterday"/>
+              </div>
             </div>
-            <div class="col-md-6">
-              <label for="dimensions">*dimensions</label>
-              <input id="dimensions" type="text" class="form-control" value="ga:country"/>
+            <div class="row form-group">
+              <div class="col-md-6">
+                <label for="maxResults">max-results</label>
+                <input id="maxResults" type="text" class="form-control" value="6"/>
+              </div>
+              <div class="col-md-6">
+                <label for="sort">sort</label>
+                <input id="sort" type="text" class="form-control" value="-ga:sessions"/>
+              </div>
             </div>
-          </div>
-          <div class="row form-group">
-            <div class="col-md-6">
-              <label for="startDate">start-date</label>
-              <input id="startDate" type="text" class="form-control" value="30daysAgo"/>
+            <div class="row form-group">
+              <div class="col-md-6">
+                <label for="filters">filters</label>
+                <input id="filters" type="text" class="form-control" value=""/>
+              </div>
+              <div class="col-md-6">
+                <label for="segment">segment</label>
+                <input id="segment" type="text" class="form-control" value=""/>
+              </div>
             </div>
-            <div class="col-md-6">
-              <label for="endDate">end-date</label>
-              <input id="endDate" type="text" class="form-control" value="yesterday"/>
-            </div>
-          </div>
-          <div class="row form-group">
-            <div class="col-md-6">
-              <label for="maxResults">max-results</label>
-              <input id="maxResults" type="text" class="form-control" value="6"/>
-            </div>
-            <div class="col-md-6">
-              <label for="sort">sort</label>
-              <input id="sort" type="text" class="form-control" value="-ga:sessions"/>
-            </div>
-          </div>
-          <div class="row form-group">
-            <div class="col-md-6">
-              <label for="filters">filters</label>
-              <input id="filters" type="text" class="form-control" value=""/>
-            </div>
-            <div class="col-md-6">
-              <label for="segment">segment</label>
-              <input id="segment" type="text" class="form-control" value=""/>
-            </div>
-          </div>
-          <button id="formSubmit" type="button" class="btn btn-primary">Submit</button>
-          <a class="btn btn-link" href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets" target="_blank">* Dimensions & Metrics Explorer</a>
-        </form>
+            <button id="formSubmit" type="button" class="btn btn-primary">Submit</button>
+            <a class="btn btn-link" href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets" target="_blank">* Dimensions & Metrics Explorer</a>
+          </form>
+        </div>
 
         <div class="modal-edit modal fade" tabindex="-1" role="dialog">
           <div class="modal-dialog">
