@@ -77,6 +77,7 @@ function startApp() {
       if (!isModal) {
         DATA.push({
           uid: generateUUID(),
+          ids: '',
           type: $('#type').val(),
           metrics: $('#metrics').val(),
           dimensions: $('#dimensions').val(),
@@ -96,6 +97,7 @@ function startApp() {
         var isSaved = _.findIndex(dataLocal, function(d) { return d.uid == id }) >= 0;
         var newData = {
           uid: id,
+          ids: '',
           type: $('.modal').find('#type').val(),
           metrics: $('.modal').find('#metrics').val(),
           dimensions: $('.modal').find('#dimensions').val(),

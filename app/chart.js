@@ -24,6 +24,15 @@ var chartOptions = {
   }
 }
 
+function log(type, message) {
+  var alertTemplate = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' +
+    '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+    message +
+  '</div>';
+
+  $('.logs').append(alertTemplate);
+}
+
 function viewChartContainer($parent, index, data) {
   var icon = data.saved ? 'glyphicon-floppy-saved' : 'glyphicon-floppy-disk';
   var savedClass = data.saved ? 'saved' : '';
@@ -66,12 +75,20 @@ function viewChart(index, options) {
     }
   });
 
+  dataChart.on('error', function(response) {
+    DATA.splice(index, 1);
+    log('danger', response.error.message);
+    $('#view-' + index).remove();
+  });
+
+  if (options.ids) dataChart.set({query: {ids: options.ids}});
   if (options.filters) dataChart.set({query: {filters: options.filters}});
   if (options.segment) dataChart.set({query: {segment: options.segment}});
 
   viewSelector.execute();
 
   viewSelector.on('change', function(ids) {
+    DATA[index].ids = ids;
     dataChart.set({query: {ids: ids}}).execute();
   });
 }

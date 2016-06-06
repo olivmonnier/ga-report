@@ -25,14 +25,15 @@
       </div>
 
       <div class="view-logged">
+        <div class="logs"></div>
         <div class="pull-right" style="margin-top: 4px;">
           <button class="btn-form-toggle btn btn-link"><i class="glyphicon glyphicon-chevron-down"></i></button>
         </div>
         <div class="well">
           <form>
             <div class="row form-group">
-              <div class="col-md-4">
-                <label for="type">type</label>
+              <div class="col-md-3">
+                <label for="type">Type</label>
                 <select id="type" class="form-control">
                   <option value="LINE">Line</option>
                   <option value="COLUMN">Column</option>
@@ -42,8 +43,8 @@
                   <option value="GEO">Geo</option>
                 </select>
               </div>
-              <div class="col-md-4">
-                <label for="size">size</label>
+              <div class="col-md-3">
+                <label for="size">Size</label>
                 <select id="size" class="form-control">
                   <option value="6">1/2 bloc</option>
                   <option value="12">1 bloc</option>
@@ -52,41 +53,41 @@
             </div>
             <div class="row form-group">
               <div class="col-md-6">
-                <label for="metrics">*metrics</label>
+                <label for="metrics">*Metrics</label>
                 <input id="metrics" type="text" class="form-control" value="ga:sessions"/>
               </div>
               <div class="col-md-6">
-                <label for="dimensions">*dimensions</label>
+                <label for="dimensions">*Dimensions</label>
                 <input id="dimensions" type="text" class="form-control" value="ga:country"/>
               </div>
             </div>
             <div class="row form-group">
               <div class="col-md-6">
-                <label for="startDate">start-date</label>
+                <label for="startDate">Start date</label>
                 <input id="startDate" type="text" class="form-control" value="30daysAgo"/>
               </div>
               <div class="col-md-6">
-                <label for="endDate">end-date</label>
+                <label for="endDate">End date</label>
                 <input id="endDate" type="text" class="form-control" value="yesterday"/>
               </div>
             </div>
             <div class="row form-group">
               <div class="col-md-6">
-                <label for="maxResults">max-results</label>
+                <label for="maxResults">Max-results</label>
                 <input id="maxResults" type="text" class="form-control" value="6"/>
               </div>
               <div class="col-md-6">
-                <label for="sort">sort</label>
+                <label for="sort">Sort</label>
                 <input id="sort" type="text" class="form-control" value="-ga:sessions"/>
               </div>
             </div>
             <div class="row form-group">
               <div class="col-md-6">
-                <label for="filters">filters</label>
+                <label for="filters">Filters</label>
                 <input id="filters" type="text" class="form-control" value=""/>
               </div>
               <div class="col-md-6">
-                <label for="segment">segment</label>
+                <label for="segment">Segment</label>
                 <input id="segment" type="text" class="form-control" value=""/>
               </div>
             </div>
